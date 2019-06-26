@@ -4,7 +4,7 @@ package com.st.beans;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document("perso")
 public class Person {
 	@Id
 	private String id;
@@ -13,6 +13,14 @@ public class Person {
 	private Double income;
 	private String addr;
 	
+	
+	public Person(String id, Integer pid, String pname, Double income, String addr) {
+		this.id = id;
+		this.pid = pid;
+		this.pname = pname;
+		this.income = income;
+		this.addr = addr;
+	}
 	public Person(Integer pid, String pname, Double income, String addr) {
 		super();
 		this.pid = pid;

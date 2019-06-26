@@ -1,15 +1,15 @@
 package com.st.runner;
 
-import java.util.HashSet;
-import java.util.Properties;
-import java.util.Set;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Component;
 
-import com.st.beans.Address;
-import com.st.beans.Employee;
+import com.st.beans.Person;
 import com.st.repo.EmployeeRepository;
 import com.st.repo.PersonRepository;
 
@@ -56,6 +56,23 @@ public class AppRunner implements CommandLineRunner {
 		 * System.out.println("erepo: "+erepo.getClass().getName());
 		 * System.out.println("prepo: "+prepo.getClass().getName());
 		 */
-
+		/*
+		 * Optional<Person>op=prepo.findById("5d10df257db4ce084cff62a0");
+		 * if(op.isPresent())System.out.println(op.get()); else
+		 * System.out.println("record not found");
+		 */
+		/* prepo.findAll().forEach(System.out::println); */
+		
+		/*
+		 * prepo.findAll(Sort.by(Direction.DESC,"pname")).forEach(System.out::println);
+		 */
+		
+		//prepo.findAll(Sort.by("pname")).forEach(System.out::println);
+		
+		/* prepo.findAll(PageRequest.of(0, 4)).forEach(System.out::println); */
+		
+		//prepo.save(new Person("123abc",11, "BB", 4.4, "ritura"));
+		prepo.insert(new Person("123abcf",111, "Ritu", 55.3, "india"));
+		System.out.println("done ");
 	}
 }
